@@ -48,14 +48,12 @@ Array<T>::Array(Array<T> const &rhs)
 template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const &rhs)
 {
-	if (*this == rhs)
-		return (*this);
-	if (this->_size > 0)
-		delete [] this->_array;
+	std::cout << "assigment operator sais hello" << std::endl;
+	delete [] this->_array;
 	this->_size = rhs._size;
 	this->_array = new T[rhs._size];
 	for (unsigned int i = 0; i < this->_size; i++)
-		this->_array[i] = rhs->_array[i];
+		this->_array[i] = rhs._array[i];
 	return (*this);
 }
 
@@ -70,8 +68,7 @@ T &Array<T>::operator[](unsigned int index)
 template<typename T>
 Array<T>::~Array(void)
 {
-	if (this->_size > 0)
-		delete [] this->_array;
+	delete [] this->_array;
 }
 
 template<typename T>
