@@ -60,5 +60,4 @@ int main()
 	::iter(string_array, sizeof(string_array) / sizeof(string_array[0]), &test_print);
 	std::cout << std::endl << std::endl;
 	return (0);
-
 }
