@@ -8,10 +8,16 @@ int main(void)
 	std::cout << "Creating empty array" << std::endl;
 	Array<int> emptyArray;
 	std::cout << std::string(50, '-') << std::endl;
-	std::cout << "Creating an array on the stack" << std::endl;
-	Array<int> *stackArray = new Array<int>();
-	Array<int> *stackArray2 = new Array<int>();
-	*stackArray = *stackArray2;
+	{
+		std::cout << "Creating an array on the stack" << std::endl;
+		Array<int> *stackArray = new Array<int>(5);
+		Array<int> *stackArray2 = new Array<int>(3);
+		*stackArray = *stackArray2;
+		std::cout << stackArray->getSize() << std::endl;
+		std::cout << stackArray2->getSize() << std::endl;
+		delete stackArray;
+		delete stackArray2;
+	}
 	std::cout << std::string(50, '-') << std::endl;
 	std::cout << "Accessing the size of both arrays:" << std::endl;
 	try
@@ -63,6 +69,5 @@ int main(void)
 	}
 	std::cout << std::string(50, '-') << std::endl;
 	std::cout << "Deleting an array" << std::endl;
-	delete stackArray;
-	delete stackArray2;
+
 }
